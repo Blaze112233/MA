@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal Login - TechHub</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #0f172a; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .login-box { background: #1e293b; border: 1px solid #334155; border-radius: 20px; width: 100%; max-width: 400px; padding: 36px 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .brand { text-align: center; margin-bottom: 28px; }
+    .brand h1 { color: #f8fafc; font-size: 24px; font-weight: 800; }
+    .brand p { color: #94a3b8; font-size: 13px; margin-top: 4px; }
+    .alert-error { background: #450a0a; color: #f87171; border: 1px solid #7f1d1d; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 20px; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 12px; font-weight: 700; color: #cbd5e1; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.6px; }
+    input { width: 100%; padding: 12px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 10px; color: #f8fafc; font-size: 14px; outline: none; }
+    input:focus { border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2); }
+    button { width: 100%; padding: 13px; background: #dc2626; color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: 0.2s; margin-top: 10px; }
+    button:hover { background: #b91c1c; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="brand">
+      <h1>⚡ TechHub Admin</h1>
+      <p>Management & Financial Intelligence Portal</p>
+    </div>
+
+    {% if error %}
+      <div class="alert-error">{{ error }}</div>
+    {% endif %}
+
+    <form action="/admin/login" method="POST">
+      <div class="form-group">
+        <label>Admin Username</label>
+        <input type="text" name="username" placeholder="admin" required autofocus>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+      </div>
+      <button type="submit">Unlock Dashboard →</button>
+    </form>
+  </div>
+</body>
+</html>
